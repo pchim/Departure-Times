@@ -1,10 +1,10 @@
 {
-  "name": "myfirstreactapp",
+  "name": "Departure-Times",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
-    "start": "browserify app.js -o bundle.js -t [ babelify --presets [ es2015 react ] ]; open http://localhost:8000; nodemon server.js",
+    "start": "browserify client/app.js -o bundle.js -t [ babelify --presets [ es2015 react ] ]; open http://localhost:8000; nodemon server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -23,6 +23,7 @@
     "eslint-plugin-jsx-a11y": "^1.5.3",
     "eslint-plugin-react": "^5.2.2",
     "express": "^4.14.0",
+    "fs": "0.0.1-security",
     "node-fetch": "^1.6.0"
   },
   "dependencies": {
