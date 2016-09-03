@@ -21,12 +21,12 @@ app.get('/', (req, res) => {
 // get lines function() {}or an operator id
 app.get('/api/lines/:id', (req, res) => {
   console.log(lines);
-  // res.send(JSON.stringify(lines, null, ' '));
+  res.send(JSON.stringify(lines, null, ' '));
   // when not using cache
-  parseLines(req.params.id, data => {
-    console.log('LINES: ' + data);
-    res.send(data);
-  });
+  // parseLines(req.params.id, data => {
+  //   console.log('LINES: ' + data);
+  //   res.send(data);
+  // });
 });
 
 const server = app.listen(8000);

@@ -9,7 +9,7 @@ geo.getCurrentPosition(position => {
 
 const App = () => (
   <div>
-    React Init
+    SF Muni/Bart Daily
     <Lines />
   </div>
 );
