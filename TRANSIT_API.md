@@ -165,9 +165,52 @@ Example Response
   ]
 }
 
-Get Reat-Time Departures for a Stop
-Example GET
-http://api.511.org/transit/StopMonitoring?api_key={your-key}&agency=SFMTA&stopCode=16039
+Get Real-Time Departures for a Stop
+Example GET (stopCode comes from stops)
+http://api.511.org/transit/StopMonitoring?api_key={your-key}&agency=SFMTA&stopCode=16038
 Example Response
-...
+{
+  "ServiceDelivery": {
+    "ResponseTimestamp": "2016-09-03T06:58Z",
+    "ProducerRef": "SF-MUNI",
+    "Status": true,
+    "StopMonitoringDelivery": {
+      "version": "1.4",
+      "ResponseTimestamp": "2016-09-03T06:58Z",
+      "Status": true,
+      "MonitoredStopVisit": [
+        {
+          "RecordedAtTime": "2016-09-03T06:57:18Z",
+          "MonitoringRef": "16038",
+          "MonitoredVehicleJourney": {
+            "LineRef": "33",
+            "DirectionRef": "Inbound",
+            "FramedVehicleJourneyRef": {
+              "DataFrameRef": "2016-09-02",
+              "DatedVehicleJourneyRef": "7253728"
+            },
+            "PublishedLineName": "33-Ashbury-18th",
+            "OperatorRef": "sf-muni",
+            "Monitored": true,
+            "VehicleLocation": {
+              "Longitude": -122.40682,
+              "Latitude": 37.75133
+            },
+            "MonitoredCall": {
+              "StopPointRef": "16038",
+              "VisitNumber": "1",
+              "StopPointName": "Potrero Ave and 24th St",
+              "VehicleAtStop": "false",
+              "AimedArrivalTime": "2016-09-03T07:02:00Z",
+              "AimedDepartureTime": "2016-09-03T07:02:00Z"
+            }
+          }
+        },
+        ...
+
+      ]
+    }
+  }
+}
+
 
