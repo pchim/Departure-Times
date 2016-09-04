@@ -24,7 +24,6 @@ app.get('/', (req, res) => {
 
 // get lines function() {}or an operator id
 app.get('/api/lines/:op_id', (req, res) => {
-  console.log(lines);
   res.send(JSON.stringify(lines, null, ' '));
   // when not using cache
   // parseLines(req.params.op_id, data => {
@@ -38,10 +37,12 @@ app.get('/api/stops/:op_id/:line_id', (req, res) => {
   console.log('Getting Stops');
   // res.send(JSON.stringify(lines, null, ' '));
   // when not using cache
-  // parseLines(req.params.id, data => {
-  //   console.log('LINES: ' + data);
-  //   res.send(data);
-  // });
+  console.log('Operators:           ', req.params.op_id, req.params.line_id);
+  parsePatterns(req.params.op_id, req.params.line_id, data => {
+    res.status(200)
+       .type('json')
+       .send(data);
+  });
 });
 
 const server = app.listen(8000);

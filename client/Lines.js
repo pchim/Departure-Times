@@ -18,27 +18,9 @@ class Lines extends Component {
 
 
   componentWillMount() {
-    // const options = [
-    //   { value: 'one', label: 'One' },
-    //   { value: 'two', label: 'Two' },
-    //   {
-    //    type: 'group', name: 'group1', items: [
-    //      { value: 'three', label: 'Three' },
-    //      { value: 'four', label: 'Four' }
-    //    ]
-    //   },
-    //   {
-    //    type: 'group', name: 'group2', items: [
-    //      { value: 'five', label: 'Five' },
-    //      { value: 'six', label: 'Six' }
-    //    ]
-    //   }
-    // ];
-    // this.setState({ options });
     fetch('/api/lines/SFMTA')
     .then(res => res.text())
     .then(res => this.updateLines(res));
-    // { this.state.lines.map(line => <p>{line.Id} {line.Name}</p>) }
   }
 
   updateLines(data) {
@@ -48,6 +30,7 @@ class Lines extends Component {
 
   _onSelect(selected) {
     this.setState({ selected });
+    this.props.onClick(selected.value);
     console.log(selected);
   };
 
