@@ -29,6 +29,7 @@ class Stops extends Component {
 
   _onSelect(selected) {
     this.setState({ selected });
+    this.props.onClick(selected.value);
     console.log(selected);
   };
 

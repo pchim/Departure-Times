@@ -167,7 +167,7 @@ Example Response
 
 Get Real-Time Departures for a Stop
 Example GET (stopCode comes from stops)
-http://api.511.org/transit/StopMonitoring?api_key={your-key}&agency=SFMTA&stopCode=16038
+http://api.511.org/transit/StopMonitoring?api_key={your-key}&agency=SF-MUNI&stopCode=16038
 Example Response
 {
   "ServiceDelivery": {
