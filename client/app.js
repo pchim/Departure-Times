@@ -4,6 +4,7 @@ import Lines from './Lines';
 import Stops from './Stops';
 import Predictions from './Predictions';
 
+
 const geo = navigator.geolocation;
 geo.getCurrentPosition(position => {
   console.log(position.coords.latitude, position.coords.longitude);
@@ -32,9 +33,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        SF Muni/Bart Daily
-        <div>
+      <div className="container center">
+        <div className="container title">SF Muni/Bart Daily</div>
+        <div className="container">  
           <Lines onClick={this.changeLine} />
           <Stops onClick={this.changeStop} line={this.state.line} />
           <Predictions stop={this.state.stop} />
