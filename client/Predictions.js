@@ -38,7 +38,7 @@ class Predictions extends Component {
   render() {
     return (
       <div>
-        <Dropdown options={this.state.predictions} onChange={this._onSelect} value={this.state.selected} placeholder={"Predictions"} />
+        { this.state.predictions.map(prediction => <div>{prediction.label}</div>) }
       </div>
     );
   }
