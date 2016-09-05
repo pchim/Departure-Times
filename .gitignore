@@ -40,3 +40,4 @@ bundle.js
 .env
 .DS_STORE
 ./server/responseCaches.js
+./utils
