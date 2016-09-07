@@ -22,12 +22,29 @@ class Predictions extends Component {
   }
 
   updatePredictions(data) {
-    let predictions = data.map(prediction => 
-      ({ 
-        value: prediction.id, 
-        label: `${prediction.info.name} ${Math.floor((new Date(prediction.arrivalTime) - Date.now()) / 60000)} mins` 
-      }));
-    this.setState({ predictions });
+    let predictions = {};
+    let nextPredictions = [];
+    data.forEach(prediction => {
+      if(predictions[prediction.info.line]) {
+        predictions[prediction.info.line].push(prediction);
+      } else {
+        predictions[prediction.info.line] = [prediction];
+      }
+    });
+    for (let line in predictions) {
+      let predictionString = `${predictions[line][0].info.name}: `;
+      for (let i = 0; i < predictions[line].length; i++) {
+        let prediction = predictions[line][i];
+        predictionString += `${Math.floor((new Date(prediction.arrivalTime) - Date.now()) / 60000)}`;
+        if (i < predictions[line].length - 1) 
+          predictionString += ', ';
+        else
+          predictionString += ' mins';
+      }
+      if (line === this.props.line)
+        nextPredictions.push(({ value: predictions[line][0].id, label: predictionString }));
+    }
+    this.setState({ predictions: nextPredictions });
   }
 
   _onSelect(selected) {
@@ -38,7 +55,9 @@ class Predictions extends Component {
   render() {
     return (
       <div>
-        { this.state.predictions.map(prediction => <div>{prediction.label}</div>) }
+        { this.state.predictions.length ? 
+          this.state.predictions.map(prediction => <div>{prediction.label}</div>) :
+          "No Current Predictions" }
       </div>
     );
   }

@@ -18,9 +18,9 @@ class Blocks extends Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.addBlock}>Add Block</button>
+      <div className="row">
         {this.state.blocks.map(block => block)}
+        <div className="center"><button onClick={this.addBlock} className="btn btn-primary btn-add" role="button">+</button></div>
       </div>
     );
   }

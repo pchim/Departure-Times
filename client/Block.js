@@ -23,13 +23,31 @@ class Block extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="panel panel-default">
+        <div className="panel-body prediction-text">
+          <Lines onClick={this.changeLine} />
+          <Stops onClick={this.changeStop} line={this.state.line} />
+          <Predictions stop={this.state.stop} line={this.state.line}/>
+        </div>
+      </div>
+    );
+  }
+}
+
+
+
+export default Block;
+
+
+
+/*
+  render() {
+    return (
+      <div>
         <Lines onClick={this.changeLine} />
         <Stops onClick={this.changeStop} line={this.state.line} />
         <Predictions stop={this.state.stop} />
       </div>
     );
   }
-}
-
-export default Block;
+  */
