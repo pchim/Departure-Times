@@ -23,7 +23,7 @@ class Block extends Component {
 
   render() {
     return (
-      <div className="panel panel-default">
+      <div className="panel panel-default prediction">
         <div className="panel-body prediction-text">
           <Lines onClick={this.changeLine} />
           <Stops onClick={this.changeStop} line={this.state.line} />

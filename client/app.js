@@ -33,8 +33,16 @@ const App = () => (
       </div>
     </div>
   </nav>
+
     <div className="container">  
-      <Blocks />
+    <ul className="nav nav-tabs nav-justified prediction">
+        <li role="presentation" className="active"><a href="#">New</a></li>
+        <li role="presentation"><a href="#">Saved</a></li>
+        <li role="presentation"><a href="#">Map</a></li>
+    </ul>
+      <div>
+        <Blocks />
+      </div>
     </div>
   </div>
 );
