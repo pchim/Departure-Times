@@ -19,6 +19,7 @@ class Block extends Component {
   }
   changeStop(stop) {
     this.setState({ stop });
+    this.props.onChangeStop(this.state.line, stop);
   }
 
   render() {
