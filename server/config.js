@@ -1,9 +1,12 @@
-export const DEBUG = false;
+// if (process.env.NODE_ENV !== 'production')
+//   require('dotenv').config();
 
-export const config = {
+const config = {
   api: {
     protocol: process.env.PROTOCOL || 'http',
     host: process.env.HOST || 'localhost',
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 8000,
   },
 };
+
+module.exports = config;
