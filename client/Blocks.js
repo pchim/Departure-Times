@@ -8,7 +8,7 @@ class Blocks extends Component {
       saves: [],
       idCount: 0,
       line: '',
-      stop: ''
+      stop: '',
     }
     // blocks needs to be a state of 'new' unchangeable blocks, implement later
     this.addBlock = this.addBlock.bind(this);
@@ -39,9 +39,7 @@ class Blocks extends Component {
         </div>
       <div className="row center">
         <p><button onClick={this.addBlock} className="btn btn-primary btn-add" role="button">+</button></p>
-        <p><button onClick={this.saveBlock} className="btn btn-primary btn-add" role="button">Save</button></p>
       </div>
-      <div>Saves: { this.state.saves.map(save => <p>{save.line}: {save.stop}</p>) } </div>
       </div>
     );
   }

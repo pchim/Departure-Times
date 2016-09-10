@@ -16,7 +16,8 @@ class Stops extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    fetch(`/api/stops/SFMTA/${nextProps.line}`)
+    console.log("Getting stops: " + nextProps);
+    fetch(`/api/stops/${nextProps.agency}/${nextProps.line}`)
     .then(res => res.json())
     .then(res => this.updateStops(res));    
   }

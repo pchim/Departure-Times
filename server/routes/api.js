@@ -4,8 +4,8 @@ const parsePatterns = require('../../utils/parsePatterns');
 const parsePredictions = require('../../utils/parsePredictions');
 const Parser = require('../utils/parser');
 const caches = require('../responseCaches');
-const lines = caches.lines;
-const stops = caches.stops;
+let lines = caches.lines;
+let stops = caches.stops;
 
 const api = app => {
   // get lines for an operator id

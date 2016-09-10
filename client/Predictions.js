@@ -16,7 +16,7 @@ class Predictions extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    fetch(`/api/predictions/SFMTA/${nextProps.stop}`)
+    fetch(`/api/predictions/${nextProps.agency}/${nextProps.stop}`)
     .then(res => res.json())
     .then(res => this.updatePredictions(res));    
   }
@@ -56,7 +56,7 @@ class Predictions extends Component {
     return (
       <div>
         { this.state.predictions.length ? 
-          this.state.predictions.map(prediction => <div>{prediction.label}</div>) :
+          this.state.predictions.map((prediction, i) => <div key={i}>{prediction.label}</div>) :
           "No Current Predictions" }
       </div>
     );

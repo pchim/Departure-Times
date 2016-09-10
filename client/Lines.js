@@ -23,7 +23,15 @@ class Lines extends Component {
     .then(res => this.updateLines(res));
   }
 
+  componentWillReceiveProps(nextProps) {
+    // this.setState({ agency: next})
+    // fetch(`/api/lines/${nextProps.agency}`)
+    // .then(res => res.text())
+    // .then(res => this.updateLines(res));
+  }
+
   updateLines(data) {
+    console.log(data);
     let lines = JSON.parse(data).map(line => ({ value: line.Id, label: `${line.Id} - ${line.Name}` }) );
     this.setState({ lines });
   }
