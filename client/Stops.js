@@ -16,7 +16,6 @@ class Stops extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("Getting stops: " + nextProps);
     fetch(`/api/stops/${nextProps.agency}/${nextProps.line}`)
     .then(res => res.json())
     .then(res => this.updateStops(res));    
@@ -31,7 +30,6 @@ class Stops extends Component {
   _onSelect(selected) {
     this.setState({ selected });
     this.props.onClick(selected.value);
-    console.log(selected);
   };
 
   render() {

@@ -31,7 +31,6 @@ class Lines extends Component {
   }
 
   updateLines(data) {
-    console.log(data);
     let lines = JSON.parse(data).map(line => ({ value: line.Id, label: `${line.Id} - ${line.Name}` }) );
     this.setState({ lines });
   }
@@ -39,7 +38,6 @@ class Lines extends Component {
   _onSelect(selected) {
     this.setState({ selected });
     this.props.onClick(selected.value);
-    console.log(selected);
   };
 
   render() {

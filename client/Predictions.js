@@ -49,7 +49,6 @@ class Predictions extends Component {
 
   _onSelect(selected) {
     this.setState({ selected });
-    console.log(selected);
   };
 
   render() {

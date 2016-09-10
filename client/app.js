@@ -5,10 +5,10 @@ import NavBar from './NavBar';
 import AppView from './AppView';
 
 
-const geo = navigator.geolocation;
-geo.getCurrentPosition(position => {
-  console.log(position.coords.latitude, position.coords.longitude);
-});
+// const geo = navigator.geolocation;
+// geo.getCurrentPosition(position => {
+//   console.log(position.coords.latitude, position.coords.longitude);
+// });
 
 const App = () => (
   <div>

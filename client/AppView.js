@@ -18,8 +18,8 @@ class AppView extends Component {
   }
 
   setView(view) {
+    /*
     if (this.state.viewType === 'block') {
-      console.log('start here');
       this.setState({ block: this.state.view });
     } else if (this.state.viewType === 'save') {
       this.setState({ save: this.state.view });
@@ -29,9 +29,7 @@ class AppView extends Component {
 
     this.setState({ view: this.state[view] || <div><Blocks /></div> });
     this.setState({ viewType: view });
-    console.log('view set to ' + view);
-    console.log(this.state);
-    //this.setState(view);
+    */
   }
 
 
@@ -40,8 +38,8 @@ class AppView extends Component {
       <div className="container">  
         <ul className="nav nav-tabs nav-justified prediction">
             <li role="presentation" className="active"><a onClick={this.setView.bind(this, "block")}>New</a></li>
-            <li role="presentation"><a onClick={this.setView.bind(this, "save")}>Saved</a></li>
-            <li role="presentation"><a onClick={this.setView.bind(this, "map")}>Map</a></li>
+            <li role="presentation"><a>Saved (In Construction)</a></li>
+            <li role="presentation"><a>Map (In Construction)</a></li>
         </ul>
         <div>
           {this.state.view}
