@@ -38,8 +38,8 @@ class AppView extends Component {
       <div className="container">  
         <ul className="nav nav-tabs nav-justified prediction">
             <li role="presentation" className="active"><a onClick={this.setView.bind(this, "block")}>New</a></li>
-            <li role="presentation"><a>Saved (In Construction)</a></li>
-            <li role="presentation"><a>Map (In Construction)</a></li>
+            <li role="presentation"><a>Saved (Under Construction)</a></li>
+            <li role="presentation"><a>Map (Under Construction)</a></li>
         </ul>
         <div>
           {this.state.view}

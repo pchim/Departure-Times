@@ -1,21 +1,23 @@
 const http = require('http');
 const zlib = require('zlib');
-require('dotenv').config();
 
 const processPredictions = (predictionObj, cb) => {
   let predictions = JSON.parse(predictionObj).ServiceDelivery;
   let timeStamp = predictions.StopMonitoringDelivery.ResponseTimestamp;
   let monitors = predictions.StopMonitoringDelivery.MonitoredStopVisit;
-  let monitoredVehicles = monitors.map(monitor =>
+  let monitoredVehicles = monitors.map((monitor, i) =>
     ({ 
-      id: monitor.MonitoredVehicleJourney.LineRef,
+      id: `${i}-${monitor.MonitoredVehicleJourney.LineRef}`,
       info: {
         name: monitor.MonitoredVehicleJourney.PublishedLineName,
+        line: monitor.MonitoredVehicleJourney.LineRef,
         lat: monitor.MonitoredVehicleJourney.VehicleLocation.Latitude,
         lon: monitor.MonitoredVehicleJourney.VehicleLocation.Longitude,
       },
-      arrivalTime: monitor.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime
+      arrivalTime: monitor.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime,
+      timeStamp: timeStamp
     }));
+  monitoredVehicles.sort((a, b) => parseInt(a.info.line) > parseInt(b.info.line));
   cb(monitoredVehicles);
 };
 
@@ -32,7 +34,6 @@ const parsePredictions = (op_id, stop_id, cb) => {
 
   http.get(options, res => {
     let chunks = [];
-    console.log(res);
     res.on('data', chunk => { chunks.push(chunk); });
     res.on('end', () => zlib.gunzip(Buffer.concat(chunks), (err, data) => {
       if (err) throw err;
