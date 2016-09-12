@@ -61,7 +61,7 @@ class Stops extends Component {
         <div>
           <button onClick={this.changeBound} 
             className="btn btn-primary btn-add" 
-            role="button">{(() => this.state.bound === 'IB' ? "IN" : "OUT")()}</button>
+            role="button">{(() => this.state.bound === 'IB' ? "InB" : "OutB")()}</button>
         </div>
       </div>
       
