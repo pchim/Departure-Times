@@ -12,6 +12,14 @@ body {
 .panel {
   margin-top: 20px;
 }
+
+.navbar {
+  background-color: #33334d;
+}
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav>li>a {
+  color: #FFF;
+}
 .panel.prediction,
 .nav.prediction {
   width: 90%;
