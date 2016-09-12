@@ -9,16 +9,18 @@ class Predictions extends Component {
     super(props);
     this.state = {
       predictions: [],
-      selected: '',
+      stop: '',
     }
     this.updatePredictions = this.updatePredictions.bind(this);
-    this._onSelect = this._onSelect.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    fetch(`/api/predictions/${nextProps.agency}/${nextProps.stop}`)
-    .then(res => res.json())
-    .then(res => this.updatePredictions(res));    
+      // may make calls to server on state change, can refine later
+      this.setState({ predictions: [] });
+      this.setState({ stop: nextProps.stop});
+      fetch(`/api/predictions/${nextProps.agency}/${nextProps.stop}`)
+      .then(res => res.json())
+      .then(res => this.updatePredictions(res));    
   }
 
   updatePredictions(data) {
@@ -47,16 +49,14 @@ class Predictions extends Component {
     this.setState({ predictions: nextPredictions });
   }
 
-  _onSelect(selected) {
-    this.setState({ selected });
-  };
-
   render() {
     return (
-      <div>
+      <div className="options">
+        <div className="outline drop-container">
         { this.state.predictions.length ? 
           this.state.predictions.map((prediction, i) => <div key={i}>{prediction.label}</div>) :
           "No Current Predictions" }
+        </div>
       </div>
     );
   }

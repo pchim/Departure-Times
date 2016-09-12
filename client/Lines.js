@@ -42,8 +42,13 @@ class Lines extends Component {
 
   render() {
     return (
-      <div>
-        <Dropdown options={this.state.lines} onChange={this._onSelect} value={this.state.selected} placeholder={"Select a line"} />
+      <div className="options">
+        <div className="outline drop-container">
+          <Dropdown options={this.state.lines} onChange={this._onSelect} value={this.state.selected} placeholder={"Select a line"} />
+        </div>
+        <div>
+          <button className="btn btn-primary btn-add" role="button">M</button>
+        </div>
       </div>
     );
   }
