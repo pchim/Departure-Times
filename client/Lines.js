@@ -47,7 +47,7 @@ class Lines extends Component {
           <Dropdown options={this.state.lines} onChange={this._onSelect} value={this.state.selected} placeholder={"Select a line"} />
         </div>
         <div>
-          <button className="btn btn-primary btn-add" role="button">M</button>
+          <button className="btn btn-primary btn-add" role="button">Muni</button>
         </div>
       </div>
     );

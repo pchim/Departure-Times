@@ -33,16 +33,16 @@ class Predictions extends Component {
         predictions[prediction.info.line] = [prediction];
       }
     });
+
     for (let line in predictions) {
       let predictionString = `${predictions[line][0].info.name}: `;
+      let times = [];
       for (let i = 0; i < predictions[line].length; i++) {
         let prediction = predictions[line][i];
-        predictionString += `${Math.floor((new Date(prediction.arrivalTime) - Date.now()) / 60000)}`;
-        if (i < predictions[line].length - 1) 
-          predictionString += ', ';
-        else
-          predictionString += ' mins';
+        times.push(parseInt(Math.floor((new Date(prediction.arrivalTime) - Date.now()) / 60000)));
       }
+      times.sort((a,b) => a > b);
+      times.forEach((time, i) => predictionString += i < times.length - 1 ? `${time}, ` : `${time} mins`)
       if (line === this.props.line)
         nextPredictions.push(({ value: predictions[line][0].id, label: predictionString }));
     }

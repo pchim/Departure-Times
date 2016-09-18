@@ -44,6 +44,9 @@ body {
   margin-left: 5px;
 }
 
+.options button.btn {
+  min-width: 58.44px;
+}
 .options .drop-container {
   width: 70%;
   margin: auto;
